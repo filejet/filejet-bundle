@@ -1,0 +1,17 @@
+{
+  "name": "filejet/filejet-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony bundle for FileJet PHP library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "FileJetBundle\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.1",
+    "symfony/framework-bundle": "^3.0|^4.0",
+    "twig/twig": "^2.4",
+    "filejet/filejet-php": "dev-master"
+  }
+}

@@ -1,0 +1,20 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  FileJet\Config:
+    arguments:
+      - "%filejet.api_key%"
+      - "%filejet.storage_id%"
+
+  FileJet\HttpClient: ~
+
+  FileJet\FileJet:
+    arguments:
+      - '@FileJet\HttpClient'
+      - '@FileJet\Config'
+
+
+  FileJetBundle\Twig\UrlProviderExtension:
+    tags: ["twig.extension"]
