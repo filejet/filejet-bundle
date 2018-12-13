@@ -12,6 +12,13 @@ You can install FileJet bundle easily via [Composer](https://getcomposer.org/):
 composer require filejet/filejet-bundle ^1.0
 ```
 
+We recommend to install following pachages before installing FileJet bundle if you don't already have installed any HTTPlug compatible packages:
+
+```bash
+composer require php-http/guzzle6-adapter ^1.1
+composer require php-http/message ^1.6
+```
+
 After installation [register the bundle](https://symfony.com/doc/3.4/bundles.html) with Symfony's bundles system.
 
 ## Configuration
