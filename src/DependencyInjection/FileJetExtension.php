@@ -18,6 +18,7 @@ class FileJetExtension extends Extension
 
         $container->setParameter('filejet.api_key', $processedConfig['api_key']);
         $container->setParameter('filejet.storage_id', $processedConfig['storage_id']);
+        $container->setParameter('filejet.auto_mode', $processedConfig['auto_mode']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');

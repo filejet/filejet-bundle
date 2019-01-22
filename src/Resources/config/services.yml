@@ -9,6 +9,7 @@ services:
     arguments:
       - "%filejet.api_key%"
       - "%filejet.storage_id%"
+      - "%filejet.auto_mode%"
 
   FileJet\FileJet:
     arguments:
