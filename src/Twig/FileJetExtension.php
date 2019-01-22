@@ -28,6 +28,6 @@ class FileJetExtension extends \Twig_Extension
 
     public function getUrl(FileInterface $file, string $mutation = null): string
     {
-        return $this->fileJet->getUrl(new File($file->getIdentifier(), $mutation ?? $file->getMutation(), $file->getCustomName()));
+        return $this->fileJet->getUrl(new File($file->getIdentifier(), $mutation ?? $file->getMutation()));
     }
 }
