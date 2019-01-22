@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('storage_id')->isRequired()->end()
                 ->scalarNode('api_key')->isRequired()->end()
-                ->booleanNode('auto_mode')->isRequired()->defaultTrue()->end()
+                ->booleanNode('auto_mode')->defaultTrue()->end()
             ->end();
 
         return $treeBuilder;
