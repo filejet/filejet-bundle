@@ -29,7 +29,10 @@ You need to provide API key and Storage ID within your config file:
 file_jet:
     storage_id: <your storage id>
     api_key: <your api key>
+    auto_mode: true/false # defaults to true
 ```
+
+More about [Auto optimization mode](https://github.com/filejet/filejet-php#auto-optimization-mode).
 
 ## Usage
 
