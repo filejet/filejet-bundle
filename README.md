@@ -9,7 +9,7 @@ For plain PHP library and FileJet documentation visit [filejet/filejet-php](http
 You can install FileJet bundle easily via [Composer](https://getcomposer.org/):
 
 ```bash
-composer require filejet/filejet-bundle ^1.0
+composer require filejet/filejet-bundle ^2.0
 ```
 
 We recommend to install following pachages before installing FileJet bundle if you don't already have installed any HTTPlug compatible packages:
