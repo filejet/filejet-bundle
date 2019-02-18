@@ -8,6 +8,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\HttpKernel\Kernel;
 
 class FileJetExtension extends Extension
 {
@@ -21,6 +22,6 @@ class FileJetExtension extends Extension
         $container->setParameter('filejet.auto_mode', $processedConfig['auto_mode']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load('services.yml');
+        $loader->load(Kernel::MAJOR_VERSION < 3 ? 'services-symfony2.yml' : 'services.yml');
     }
 }

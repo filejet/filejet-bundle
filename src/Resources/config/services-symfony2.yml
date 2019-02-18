@@ -1,0 +1,24 @@
+services:
+  filejet.http_client:
+    class: FileJet\HttpClient
+
+  filejet.config:
+    class: FileJet\Config
+    arguments:
+      - "%filejet.api_key%"
+      - "%filejet.storage_id%"
+      - "%filejet.auto_mode%"
+
+  filejet.filejet:
+    class: FileJet\FileJet
+    arguments:
+      - '@filejet.http_client'
+      - '@filejet.config'
+
+
+  filejet.extension:
+    class: FileJetBundle\Twig\FileJetExtension
+    arguments:
+      - '@filejet.filejet'
+    tags:
+      - { name: "twig.extension" }
