@@ -21,6 +21,14 @@ composer require php-http/message ^1.6
 
 After installation [register the bundle](https://symfony.com/doc/3.4/bundles.html) with Symfony's bundles system.
 
+## Upgrading the bundle
+
+We recommend upgrade the bundle with `--with-dependencies` option:
+
+```bash
+composer update filejet/filejet-bundle --with-dependencies
+```
+
 ## Configuration
 
 You need to provide API key and Storage ID within your config file:
