@@ -28,13 +28,13 @@ class FileJetExtension extends Extension
     private function getResource(): string
     {
         if (Kernel::MAJOR_VERSION < 3) {
-            return 'services-symfony2.yml';
+            return 'services-legacy.yml';
         }
 
         if (Kernel::MAJOR_VERSION === 3 && Kernel::MINOR_VERSION <= 2) {
-            return 'services-symfony2.yml';
+            return 'services-legacy.yml';
         }
 
-        return 'services.yml';
+        return 'services-autowire.yml';
     }
 }
