@@ -22,6 +22,19 @@ class FileJetExtension extends Extension
         $container->setParameter('filejet.auto_mode', $processedConfig['auto_mode']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
-        $loader->load(Kernel::MAJOR_VERSION < 3 ? 'services-symfony2.yml' : 'services.yml');
+        $loader->load($this->getResource());
+    }
+
+    private function getResource(): string
+    {
+        if (Kernel::MAJOR_VERSION < 3) {
+            return 'services-legacy.yml';
+        }
+
+        if (Kernel::MAJOR_VERSION === 3 && Kernel::MINOR_VERSION <= 2) {
+            return 'services-legacy.yml';
+        }
+
+        return 'services-autowire.yml';
     }
 }
