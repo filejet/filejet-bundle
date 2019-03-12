@@ -2,11 +2,15 @@ services:
   filejet.http_client:
     class: FileJet\HttpClient
 
+  filejet.mutation:
+    class: FileJet\Mutation
+
   filejet.config:
     class: FileJet\Config
     arguments:
       - "%filejet.api_key%"
       - "%filejet.storage_id%"
+      - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
 
   filejet.filejet:
@@ -14,6 +18,7 @@ services:
     arguments:
       - '@filejet.http_client'
       - '@filejet.config'
+      - '@filejet.mutation'
 
 
   filejet.extension:

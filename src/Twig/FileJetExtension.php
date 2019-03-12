@@ -22,6 +22,7 @@ class FileJetExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction('file_url', [$this, 'getUrl']),
+            new \Twig_SimpleFunction('external_file_url', [$this->fileJet, 'getExternalUrl']),
             new \Twig_SimpleFunction('private_file_url', [$this->fileJet, 'getPrivateUrl'])
         ];
     }
