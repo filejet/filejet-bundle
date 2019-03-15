@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('storage_id')->isRequired()->end()
                 ->scalarNode('api_key')->isRequired()->end()
-                ->scalarNode('signature_secret')->end()
+                ->scalarNode('signature_secret')->defaultNull()->end()
                 ->booleanNode('auto_mode')->defaultTrue()->end()
             ->end();
 
