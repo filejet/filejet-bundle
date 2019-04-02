@@ -10,6 +10,7 @@ services:
     arguments:
       - "%filejet.api_key%"
       - "%filejet.storage_id%"
+      - "%filejet.base_url%"
       - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
 

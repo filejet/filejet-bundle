@@ -11,6 +11,7 @@ services:
       - "%filejet.api_key%"
       - "%filejet.storage_id%"
       - "%filejet.signature_secret%"
+      - "%filejet.base_url%"
       - "%filejet.auto_mode%"
 
   filejet.filejet:
@@ -25,5 +26,6 @@ services:
     class: FileJetBundle\Twig\FileJetExtension
     arguments:
       - '@filejet.filejet'
+      - '@filejet.config'
     tags:
       - { name: "twig.extension" }
