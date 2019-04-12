@@ -40,6 +40,7 @@ class FileJetExtension extends \Twig_Extension
     public function getAsset(string $path, string $mutation = null): string
     {
         $mutation = empty($mutation) ? '' : "/${mutation}";
+        $mutation .= $this->config->isAutoMode() ? ',auto' : '';
         $originPath = urlencode("{$this->config->getBaseUrl()}{$path}");
 
         return "{$this->config->getPublicUrl()}/ext{$mutation}?src={$originPath}";
