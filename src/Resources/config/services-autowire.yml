@@ -4,17 +4,21 @@ services:
     autoconfigure: true
 
   FileJet\HttpClient: ~
+  FileJet\Mutation: ~
 
   FileJet\Config:
     arguments:
       - "%filejet.api_key%"
       - "%filejet.storage_id%"
+      - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
+      - "%filejet.base_url%"
 
   FileJet\FileJet:
     arguments:
       - '@FileJet\HttpClient'
       - '@FileJet\Config'
+      - '@FileJet\Mutation'
 
 
   FileJetBundle\Twig\FileJetExtension:
