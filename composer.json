@@ -12,6 +12,6 @@
     "php": "^7.1",
     "symfony/framework-bundle": "^2.8|^3.0|^4.0",
     "twig/twig": "^1.35|^2.4",
-    "filejet/filejet-php": "^2.0"
+    "filejet/filejet-php": "^2.6"
   }
 }
