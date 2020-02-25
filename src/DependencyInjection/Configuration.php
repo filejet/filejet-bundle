@@ -20,6 +20,11 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('signature_secret')->defaultNull()->end()
                 ->scalarNode('base_url')->defaultNull()->end()
                 ->booleanNode('auto_mode')->defaultTrue()->end()
+                ->scalarNode('custom_domain')
+                    ->defaultNull()
+                    ->info('Custom domain to use, without scheme')
+                    ->example('cdn.example.com')
+                ->end()
             ->end();
 
         return $treeBuilder;

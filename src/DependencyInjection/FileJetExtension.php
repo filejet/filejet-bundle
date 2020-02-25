@@ -22,6 +22,7 @@ class FileJetExtension extends Extension
         $container->setParameter('filejet.signature_secret', $processedConfig['signature_secret']);
         $container->setParameter('filejet.base_url', $processedConfig['base_url']);
         $container->setParameter('filejet.auto_mode', $processedConfig['auto_mode']);
+        $container->setParameter('filejet.custom_domain', $processedConfig['custom_domain']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load($this->getResource());
