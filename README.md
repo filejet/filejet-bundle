@@ -39,6 +39,7 @@ file_jet:
     api_key: <your api key>
     signature_secret: <your signature secret> # optional - needed for usage with external files
     auto_mode: true/false # defaults to true
+    custom_domain: <your custom domain> # optional, without scheme, e.g. cdn.example.com
 ```
 
 More about [Auto optimization mode](https://github.com/filejet/filejet-php#auto-optimization-mode).
