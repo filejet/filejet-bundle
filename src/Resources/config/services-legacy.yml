@@ -13,6 +13,7 @@ services:
       - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
       - "%filejet.base_url%"
+      - "%filejet.custom_domain%"
 
   filejet.filejet:
     class: FileJet\FileJet
