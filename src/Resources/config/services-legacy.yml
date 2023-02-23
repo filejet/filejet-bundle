@@ -8,12 +8,11 @@ services:
   filejet.config:
     class: FileJet\Config
     arguments:
-      - "%filejet.api_key%"
-      - "%filejet.storage_id%"
+      - "%filejet.lambda_controller_function_name%"
+      - "%filejet.custom_domain%"
       - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
       - "%filejet.base_url%"
-      - "%filejet.custom_domain%"
 
   filejet.filejet:
     class: FileJet\FileJet
@@ -21,6 +20,7 @@ services:
       - '@filejet.http_client'
       - '@filejet.config'
       - '@filejet.mutation'
+      - '@filejet.lambda_client'
 
 
   filejet.extension:

@@ -8,18 +8,18 @@ services:
 
   FileJet\Config:
     arguments:
-      - "%filejet.api_key%"
-      - "%filejet.storage_id%"
+      - "%filejet.lambda_controller_function_name%"
+      - "%filejet.custom_domain%"
       - "%filejet.signature_secret%"
       - "%filejet.auto_mode%"
       - "%filejet.base_url%"
-      - "%filejet.custom_domain%"
 
   FileJet\FileJet:
     arguments:
       - '@FileJet\HttpClient'
       - '@FileJet\Config'
       - '@FileJet\Mutation'
+      - '@filejet.lambda_client'
 
 
   FileJetBundle\Twig\FileJetExtension:

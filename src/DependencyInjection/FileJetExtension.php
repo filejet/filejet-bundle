@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace FileJetBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader;
@@ -17,13 +18,13 @@ class FileJetExtension extends Extension
         $configuration = new Configuration();
         $processedConfig = $this->processConfiguration($configuration, $configs);
 
-        $container->setParameter('filejet.api_key', $processedConfig['api_key']);
-        $container->setParameter('filejet.storage_id', $processedConfig['storage_id']);
+        $container->setParameter('filejet.lambda_controller_function_name', $processedConfig['lambda_controller_function_name']);
         $container->setParameter('filejet.signature_secret', $processedConfig['signature_secret']);
         $container->setParameter('filejet.base_url', $processedConfig['base_url']);
         $container->setParameter('filejet.auto_mode', $processedConfig['auto_mode']);
         $container->setParameter('filejet.custom_domain', $processedConfig['custom_domain']);
-
+        $container->setAlias('filejet.lambda_client', new Alias(ltrim($processedConfig['lambda_client'], '@'), false));
+        
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load($this->getResource());
     }
