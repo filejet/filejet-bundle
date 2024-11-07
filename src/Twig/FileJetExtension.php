@@ -8,8 +8,10 @@ use FileJet\Config;
 use FileJet\File;
 use FileJet\FileInterface;
 use FileJet\FileJet;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
-class FileJetExtension extends \Twig_Extension
+class FileJetExtension extends AbstractExtension
 {
     /** @var FileJet */
     private $fileJet;
@@ -25,10 +27,10 @@ class FileJetExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('file_url', [$this, 'getUrl']),
-            new \Twig_SimpleFunction('asset_url', [$this, 'getAsset']),
-            new \Twig_SimpleFunction('external_file_url', [$this->fileJet, 'getExternalUrl']),
-            new \Twig_SimpleFunction('private_file_url', [$this->fileJet, 'getPrivateUrl'])
+            new TwigFunction('file_url', [$this, 'getUrl']),
+            new TwigFunction('asset_url', [$this, 'getAsset']),
+            new TwigFunction('external_file_url', [$this->fileJet, 'getExternalUrl']),
+            new TwigFunction('private_file_url', [$this->fileJet, 'getPrivateUrl'])
         ];
     }
 
